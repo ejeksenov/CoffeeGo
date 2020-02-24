@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "955823082958",
+    "firebase_url": "https://coffeego-a3924.firebaseio.com",
+    "project_id": "coffeego-a3924",
+    "storage_bucket": "coffeego-a3924.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955823082958:android:2a2225d019779ecc4c6f9f",
+        "android_client_info": {
+          "package_name": "kz.coffee.go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955823082958-i8o48062fjhvj1drjo9efp6pjhg0g106.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kz.coffee.go",
+            "certificate_hash": "61df8439d71413b3540d8cbaf5a24430a3c0e6c9"
+          }
+        },
+        {
+          "client_id": "955823082958-23nka4t6ki32uinhahke8bdecpfqkbad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1bVdMsAHPy2KwPGR4mB-QmKUzOJYieNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955823082958-23nka4t6ki32uinhahke8bdecpfqkbad.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "955823082958-s229ekgg94gp2uh9lfrpf07npc5ri4s9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kz.nslabs.CoffeeGo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955823082958:android:dae5a8e7a4763012",
+        "android_client_info": {
+          "package_name": "kz.nextstep.coffeego"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955823082958-ebj1ui227lv2fnl9na22eu5adlj1kjfb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kz.nextstep.coffeego",
+            "certificate_hash": "124d39929090fab61a36a8cf8b9c4d19d35ef72d"
+          }
+        },
+        {
+          "client_id": "955823082958-23nka4t6ki32uinhahke8bdecpfqkbad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1bVdMsAHPy2KwPGR4mB-QmKUzOJYieNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955823082958-23nka4t6ki32uinhahke8bdecpfqkbad.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "955823082958-s229ekgg94gp2uh9lfrpf07npc5ri4s9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kz.nslabs.CoffeeGo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

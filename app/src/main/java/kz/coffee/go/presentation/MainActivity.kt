@@ -1,7 +1,8 @@
-package kz.coffee.go
+package kz.coffee.go.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kz.coffee.go.R
 
 class MainActivity : AppCompatActivity() {
 
