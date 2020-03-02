@@ -1,10 +1,10 @@
-package kz.coffee.go.data
+package kz.coffee.go.data.user
 
-import com.google.firebase.auth.EmailAuthCredential
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
+import kz.coffee.go.data.user.IUsersRepo
 import kz.coffee.go.domain.User
 import kz.coffee.go.domain.userCollectionName
 import kz.coffee.go.utils.Resource

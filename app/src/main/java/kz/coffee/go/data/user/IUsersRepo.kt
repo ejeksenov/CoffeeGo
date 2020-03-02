@@ -1,4 +1,4 @@
-package kz.coffee.go.data
+package kz.coffee.go.data.user
 
 import kz.coffee.go.domain.User
 import kz.coffee.go.utils.Resource

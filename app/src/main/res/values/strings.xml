@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CoffeeGo</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="signIn">Войти</string>
+    <string name="signUp">Регистрация</string>
 </resources>

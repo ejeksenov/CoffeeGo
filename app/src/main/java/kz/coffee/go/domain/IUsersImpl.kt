@@ -1,6 +1,6 @@
 package kz.coffee.go.domain
 
-import kz.coffee.go.data.IUsersRepo
+import kz.coffee.go.data.user.IUsersRepo
 import kz.coffee.go.utils.Resource
 
 class IUsersImpl(private val usersRepo: IUsersRepo) : IUsers {
