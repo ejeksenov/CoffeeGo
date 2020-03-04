@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">CoffeeGo</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="signIn">Войти</string>
+    <string name="signUp">Регистрация</string>
+    <string name="enter_valid_email">Введите корректный email</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="password_six_char">Пароль не должен быть меньше 6 символов</string>
+    <string name="fullName">Ваше имя</string>
+    <string name="toContinue">Продолжить</string>
+    <string name="toSignUp">Зарегистрироваться</string>
+    <string name="enter_fullname">Введите ваше имя</string>
+    <string name="succeed_signed_up">Вы успешно зарегистрировались</string>
 </resources>

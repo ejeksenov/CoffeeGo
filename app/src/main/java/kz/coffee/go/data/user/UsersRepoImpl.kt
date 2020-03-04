@@ -1,10 +1,10 @@
-package kz.coffee.go.data
+package kz.coffee.go.data.user
 
-import com.google.firebase.auth.EmailAuthCredential
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
+import kz.coffee.go.data.user.IUsersRepo
 import kz.coffee.go.domain.User
 import kz.coffee.go.domain.userCollectionName
 import kz.coffee.go.utils.Resource
@@ -20,11 +20,8 @@ class UsersRepoImpl : IUsersRepo {
         password: String
     ): Resource<Boolean> {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-            resource = if (it.isSuccessful)
-                Resource.Success(true)
-            else
-                Resource.Failure(it.exception!!)
-        }
+            resource = if (it.isSuccessful) Resource.Success(true) else Resource.Failure(it.exception!!)
+        }.await()
         return resource!!
     }
 
@@ -51,7 +48,7 @@ class UsersRepoImpl : IUsersRepo {
             } else
                 resource = Resource.Failure(it.exception!!)
 
-        }
+        }.await()
         return resource!!
     }
 
@@ -73,7 +70,7 @@ class UsersRepoImpl : IUsersRepo {
             resource =
                 if (it.isSuccessful) Resource.Success(true)
                 else Resource.Failure(it.exception!!)
-        }
+        }.await()
         return resource!!
     }
 
@@ -92,7 +89,7 @@ class UsersRepoImpl : IUsersRepo {
                     }
                 } else
                     resource = Resource.Failure(it.exception!!)
-            }
+            }.await()
         }
         return resource!!
     }
@@ -112,7 +109,7 @@ class UsersRepoImpl : IUsersRepo {
                     }
                 } else
                     resource = Resource.Failure(it.exception!!)
-            }
+            }.await()
         }
         return resource!!
     }
@@ -124,7 +121,7 @@ class UsersRepoImpl : IUsersRepo {
                 Resource.Success(true)
             else
                 Resource.Failure(it.exception!!)
-        }
+        }.await()
         return resource!!
     }
 
