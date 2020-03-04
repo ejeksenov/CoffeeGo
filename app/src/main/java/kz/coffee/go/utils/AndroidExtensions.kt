@@ -3,6 +3,7 @@ package kz.coffee.go.utils
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.lifecycle.*
 import com.google.android.material.snackbar.Snackbar
@@ -19,6 +20,10 @@ fun snackbar(@StringRes message: Int, rootView: View) = Snackbar.make(rootView, 
 
 fun snackbar(message: String, rootView: View) = Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT).show()
 
+fun showToast(@StringRes message: Int, context: Context) = Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+
+fun showToast(message: String, context: Context) = Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+
 fun View.visible() {
   visibility = View.VISIBLE
 }
@@ -26,6 +31,8 @@ fun View.visible() {
 fun View.gone() {
   visibility = View.GONE
 }
+
+fun checkEmailValidity(email: String) = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
 fun View.hideKeyboard() {
   val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

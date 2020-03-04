@@ -1,18 +1,16 @@
 package kz.coffee.go.presentation.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavDestination
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kz.coffee.go.R
 import kz.coffee.go.databinding.ActivityMainBinding
+import kz.coffee.go.presentation.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private val mainViewModel: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
@@ -37,5 +35,10 @@ class MainActivity : AppCompatActivity() {
         navGraph.startDestination = destination
         navController.graph = navGraph
 
+    }
+
+
+    fun showBottomNavigation() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
     }
 }
