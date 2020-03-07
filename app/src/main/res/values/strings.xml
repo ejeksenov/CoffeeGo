@@ -26,6 +26,10 @@
     <string name="save">Сохранить</string>
     <string name="current_email_text">Текущий электронный адрес</string>
     <string name="succeed_change">Успешно изменен</string>
+    <string name="changePassword">Сменить пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="repeate_new_password">Повторите пароль</string>
+    <string name="passwords_not_match">Пароли не совпадают</string>
 
     <string-array name="cities_kz">
         <item>Нур-Султан</item>
