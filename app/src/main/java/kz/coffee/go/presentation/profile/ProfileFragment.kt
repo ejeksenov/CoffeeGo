@@ -86,9 +86,7 @@ class ProfileFragment : BaseFragment() {
 
     private fun onManageSettingsItemClick(position: Int) {
         when (position) {
-            0 -> {
-
-            }
+            0 -> this.findNavController().navigate(R.id.action_profileFragment_to_changePasswordFragment)
             1 -> this.findNavController().navigate(R.id.action_profileFragment_to_changeEmailFragment)
             2 -> onOpenAgreementUrl()
             3 -> onShareApp()
