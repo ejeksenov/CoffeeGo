@@ -41,7 +41,7 @@ class UsersRepoImpl : IUsersRepo {
                         resource = if (it1.isSuccessful)
                             Resource.Success(true)
                         else
-                            Resource.Failure(it.exception!!)
+                            Resource.Failure(it1.exception!!)
                     }
             } else
                 resource = Resource.Failure(it.exception!!)
@@ -77,41 +77,32 @@ class UsersRepoImpl : IUsersRepo {
 
     override suspend fun changePassword(password: String, newPassword: String): Resource<Boolean> {
         val currentUser = mAuth.currentUser
-        val email = currentUser?.email
-        if (currentUser != null && email != null) {
-            val credential = EmailAuthProvider.getCredential(email, password)
-            currentUser.reauthenticate(credential).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    currentUser.updatePassword(newPassword).addOnCompleteListener { it1 ->
-                        resource = if (it1.isSuccessful)
-                            Resource.Success(true)
-                        else
-                            Resource.Failure(it.exception!!)
-                    }
-                } else
-                    resource = Resource.Failure(it.exception!!)
-            }.await()
-        }
+        currentUser?.updatePassword(newPassword)?.addOnCompleteListener {
+            resource = if (it.isSuccessful)
+                Resource.Success(true)
+            else
+                Resource.Failure(it.exception!!)
+        }?.await()
         return resource!!
     }
 
-    override suspend fun changeEmail(password: String, newEmail: String): Resource<Boolean> {
+    override suspend fun reauthenticateUser(password: String): Resource<Boolean> {
         val currentUser = mAuth.currentUser
         val email = currentUser?.email
-        if (currentUser != null && email != null) {
-            val credential = EmailAuthProvider.getCredential(email, password)
-            currentUser.reauthenticate(credential).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    currentUser.updateEmail(newEmail).addOnCompleteListener { it1 ->
-                        resource = if (it1.isSuccessful)
-                            Resource.Success(true)
-                        else
-                            Resource.Failure(it.exception!!)
-                    }
-                } else
-                    resource = Resource.Failure(it.exception!!)
-            }.await()
-        }
+        val credential = EmailAuthProvider.getCredential(email!!, password)
+        currentUser.reauthenticate(credential).addOnCompleteListener {
+            resource =
+                if (it.isSuccessful) Resource.Success(true) else Resource.Failure(it.exception!!)
+        }.await()
+        return resource!!
+    }
+
+    override suspend fun changeEmail(newEmail: String): Resource<Boolean> {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        currentUser?.updateEmail(newEmail)?.addOnCompleteListener {
+            resource =
+                if (it.isSuccessful) Resource.Success(true) else Resource.Failure(it.exception!!)
+        }?.await()
         return resource!!
     }
 

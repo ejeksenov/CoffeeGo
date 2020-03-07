@@ -89,9 +89,7 @@ class ProfileFragment : BaseFragment() {
             0 -> {
 
             }
-            1 -> {
-
-            }
+            1 -> this.findNavController().navigate(R.id.action_profileFragment_to_changeEmailFragment)
             2 -> onOpenAgreementUrl()
             3 -> onShareApp()
             4 -> onAlertContactUs()
