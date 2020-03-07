@@ -1,6 +1,7 @@
 package kz.coffee.go.presentation.login
 
 import androidx.lifecycle.*
+import com.google.firebase.auth.FirebaseAuth
 import kz.coffee.go.domain.IUsers
 import kz.coffee.go.presentation.base.BaseViewModel
 import kz.coffee.go.utils.Resource

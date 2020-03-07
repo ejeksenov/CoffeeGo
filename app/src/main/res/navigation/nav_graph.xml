@@ -6,6 +6,16 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
+        android:id="@+id/homeFragment"
+        android:name="kz.coffee.go.presentation.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_scanQrCodeFragment"
+            app:destination="@id/scanQrCodeFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/loginFragment"
         android:name="kz.coffee.go.presentation.login.LoginFragment"
         android:label="login_fragment"
@@ -21,11 +31,7 @@
             android:id="@+id/action_loginFragment_to_signUpEmailFragment"
             app:destination="@id/signUpEmailFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="kz.coffee.go.presentation.home.HomeFragment"
-        android:label="home_fragment"
-        tools:layout="@layout/home_fragment" />
+
     <fragment
         android:id="@+id/signUpEmailFragment"
         android:name="kz.coffee.go.presentation.signUpEmail.SignUpEmailFragment"
@@ -36,4 +42,23 @@
             app:popUpToInclusive="true"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="kz.coffee.go.presentation.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_scanQrCodeFragment"
+            app:destination="@id/scanQrCodeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanQrCodeFragment"
+        android:name="kz.coffee.go.presentation.qrScan.ScanQrCodeFragment"
+        android:label="scan_qr_code_fragment"
+        tools:layout="@layout/scan_qr_code_fragment" />
 </navigation>

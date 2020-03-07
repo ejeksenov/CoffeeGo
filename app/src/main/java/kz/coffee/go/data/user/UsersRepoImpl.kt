@@ -2,6 +2,8 @@ package kz.coffee.go.data.user
 
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import kz.coffee.go.data.user.IUsersRepo
@@ -20,14 +22,10 @@ class UsersRepoImpl : IUsersRepo {
         password: String
     ): Resource<Boolean> {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-            resource = if (it.isSuccessful) Resource.Success(true) else Resource.Failure(it.exception!!)
+            resource =
+                if (it.isSuccessful) Resource.Success(true) else Resource.Failure(it.exception!!)
         }.await()
         return resource!!
-    }
-
-    override suspend fun signOut(): Resource<Boolean> {
-        mAuth.signOut()
-        return Resource.Success(true)
     }
 
     override suspend fun signUpWithEmailAndPassword(
@@ -54,15 +52,18 @@ class UsersRepoImpl : IUsersRepo {
 
     override suspend fun getUserById(): Resource<User> {
         val mUser = mAuth.currentUser
+
+        val mUserId = mUser?.uid
         val mUserData =
-            mFirestore.collection(userCollectionName).document(mUser?.uid!!).get().await()
+            mFirestore.collection(userCollectionName).document(mUserId!!).get().await()
         val user = User(
-            fullName = mUserData.getString("fullName"),
             cashback = mUserData.getDouble("cashback"),
             city = mUserData.getString("city"),
+            fullName = mUserData.getString("fullName"),
             imageUrl = mUserData.getString("imageUrl")
         )
         return Resource.Success(user)
+
     }
 
     override suspend fun sendResetPassword(email: String): Resource<Boolean> {
@@ -81,7 +82,7 @@ class UsersRepoImpl : IUsersRepo {
             val credential = EmailAuthProvider.getCredential(email, password)
             currentUser.reauthenticate(credential).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    currentUser.updatePassword(newPassword).addOnCompleteListener {it1 ->
+                    currentUser.updatePassword(newPassword).addOnCompleteListener { it1 ->
                         resource = if (it1.isSuccessful)
                             Resource.Success(true)
                         else
@@ -101,7 +102,7 @@ class UsersRepoImpl : IUsersRepo {
             val credential = EmailAuthProvider.getCredential(email, password)
             currentUser.reauthenticate(credential).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    currentUser.updateEmail(newEmail).addOnCompleteListener {it1 ->
+                    currentUser.updateEmail(newEmail).addOnCompleteListener { it1 ->
                         resource = if (it1.isSuccessful)
                             Resource.Success(true)
                         else
@@ -116,12 +117,13 @@ class UsersRepoImpl : IUsersRepo {
 
     override suspend fun changeUserData(user: User): Resource<Boolean> {
         val currentUser = mAuth.currentUser
-        mFirestore.collection(userCollectionName).document(currentUser?.uid!!).set(user).addOnCompleteListener {
-            resource = if (it.isSuccessful)
-                Resource.Success(true)
-            else
-                Resource.Failure(it.exception!!)
-        }.await()
+        mFirestore.collection(userCollectionName).document(currentUser?.uid!!).set(user)
+            .addOnCompleteListener {
+                resource = if (it.isSuccessful)
+                    Resource.Success(true)
+                else
+                    Resource.Failure(it.exception!!)
+            }.await()
         return resource!!
     }
 

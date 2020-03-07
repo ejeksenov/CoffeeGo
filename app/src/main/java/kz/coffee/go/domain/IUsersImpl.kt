@@ -10,8 +10,6 @@ class IUsersImpl(private val usersRepo: IUsersRepo) : IUsers {
         password: String
     ): Resource<Boolean> = usersRepo.signInWithEmailAndPassword(email, password)
 
-    override suspend fun signOut(): Resource<Boolean> = usersRepo.signOut()
-
     override suspend fun signUpWithEmailAndPassword(
         user: User,
         email: String,

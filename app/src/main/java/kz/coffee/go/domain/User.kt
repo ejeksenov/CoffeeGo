@@ -1,7 +1,10 @@
 package kz.coffee.go.domain
 
+import com.google.firebase.firestore.IgnoreExtraProperties
+
 const val userCollectionName = "Users"
 
+@IgnoreExtraProperties
 data class User(var fullName: String? = "",
                 var cashback: Double? = 0.0,
                 var city: String? = "",

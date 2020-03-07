@@ -2,24 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/homeFragment"
+        android:title="@null"
         android:enabled="true"
-        android:title=""
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_home_brown"
-        app:showAsAction="ifRoom" />
+        />
 
     <item
-        android:id="@+id/action_camera"
+        android:id="@+id/profileFragment"
+        android:title="@null"
         android:enabled="true"
-        android:title=""
-        android:icon="@drawable/ic_camera_brown"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/action_profile"
-        android:enabled="true"
-        android:title=""
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_person_brown"
-        app:showAsAction="ifRoom" />
+        />
 
 </menu>

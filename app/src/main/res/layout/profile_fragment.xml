@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".presentation.profile.ProfileFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/ivProfileAvatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                tools:src="@drawable/ic_account_circle_gray"
+                android:background="@drawable/all_circle_white_background"
+                />
+
+            <TextView
+                android:id="@+id/tvProfileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                tools:text="Yelnur Zhexenov"
+                android:layout_toEndOf="@+id/ivProfileAvatar"
+                android:layout_toStartOf="@+id/btnProfileSignOut"
+                android:textColor="@android:color/black"/>
+            <ImageButton
+                android:id="@+id/btnProfileSignOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_exit_to_app"
+                android:background="@color/transparent"
+                android:layout_marginStart="8dp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/tvProfileEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="@string/editProfile"
+                android:layout_toEndOf="@+id/ivProfileAvatar"
+                android:layout_below="@id/tvProfileName"
+                />
+
+            <TextView
+                android:id="@+id/tvProfileBalanceText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="@string/balance"
+                android:layout_toEndOf="@+id/ivProfileAvatar"
+                android:layout_below="@id/tvProfileEdit"
+                android:layout_marginTop="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvProfileBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                tools:text="95"
+                android:textColor="@android:color/black"
+                android:layout_toEndOf="@+id/ivProfileAvatar"
+                android:layout_below="@id/tvProfileBalanceText"
+                />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/tvProfileBalanceText"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/bright_gray"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProfileSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </LinearLayout>
+</layout>
