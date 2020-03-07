@@ -12,4 +12,40 @@
     <string name="toSignUp">Зарегистрироваться</string>
     <string name="enter_fullname">Введите ваше имя</string>
     <string name="succeed_signed_up">Вы успешно зарегистрировались</string>
+    <string name="editProfile">Редактировать профиль</string>
+    <string name="balance">Баланс:</string>
+    <string name="sign_out_question">Вы хотите выйти из аккаунта?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="contact_us_text">Мы принимаем звонки с 10:00 до 18:00</string>
+    <string name="call">Позвонить</string>
+    <string name="write">Написать</string>
+
+    <string-array name="cities_kz">
+        <item>Нур-Султан</item>
+        <item>Алматы</item>
+        <item>Шымкент</item>
+        <item>Караганда</item>
+        <item>Актобе</item>
+        <item>Тараз</item>
+        <item>Павлодар</item>
+        <item>Усть-Каменогорск</item>
+        <item>Семей</item>
+        <item>Кызылорда</item>
+        <item>Костанай</item>
+        <item>Атырау</item>
+        <item>Петропавлск</item>
+        <item>Актау</item>
+        <item>Кокшетау</item>
+        <item>Талдыкорган</item>
+        <item>Жезказган</item>
+    </string-array>
+
+    <string-array name="settings">
+        <item>Сменить пароль</item>
+        <item>Изменить Email</item>
+        <item>Соглашение</item>
+        <item>Поделиться приложением</item>
+        <item>Связаться с нами</item>
+    </string-array>
 </resources>

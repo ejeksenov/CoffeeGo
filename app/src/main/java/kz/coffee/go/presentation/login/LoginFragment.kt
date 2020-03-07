@@ -38,6 +38,7 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).hideBottomNavigation()
 
         binding.btnLoginSignIn.setOnClickListener {
             if (onCheckFields()) {
