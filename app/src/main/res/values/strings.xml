@@ -20,6 +20,12 @@
     <string name="contact_us_text">Мы принимаем звонки с 10:00 до 18:00</string>
     <string name="call">Позвонить</string>
     <string name="write">Написать</string>
+    <string name="changeEmail">Изменить Email</string>
+    <string name="new_email">Новый email</string>
+    <string name="current_password">Текущий пароль</string>
+    <string name="save">Сохранить</string>
+    <string name="current_email_text">Текущий электронный адрес</string>
+    <string name="succeed_change">Успешно изменен</string>
 
     <string-array name="cities_kz">
         <item>Нур-Султан</item>

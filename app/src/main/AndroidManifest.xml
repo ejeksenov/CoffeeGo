@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".presentation.main.MainActivity"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

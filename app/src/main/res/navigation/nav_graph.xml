@@ -55,10 +55,17 @@
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_changeEmailFragment"
+            app:destination="@id/changeEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanQrCodeFragment"
         android:name="kz.coffee.go.presentation.qrScan.ScanQrCodeFragment"
         android:label="scan_qr_code_fragment"
         tools:layout="@layout/scan_qr_code_fragment" />
+    <fragment
+        android:id="@+id/changeEmailFragment"
+        android:name="kz.coffee.go.presentation.changeEmail.ChangeEmailFragment"
+        android:label="ChangeEmailFragment" />
 </navigation>

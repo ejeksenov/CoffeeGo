@@ -24,8 +24,13 @@ class IUsersImpl(private val usersRepo: IUsersRepo) : IUsers {
     override suspend fun changePassword(password: String, newPassword: String): Resource<Boolean> =
         usersRepo.changePassword(password, newPassword)
 
-    override suspend fun changeEmail(password: String, newEmail: String): Resource<Boolean> =
-        usersRepo.changeEmail(password, newEmail)
+    override suspend fun reauthenticateUser(password: String): Resource<Boolean> {
+        return usersRepo.reauthenticateUser(password)
+    }
+
+    override suspend fun changeEmail(newEmail: String): Resource<Boolean> {
+        return usersRepo.changeEmail(newEmail)
+    }
 
     override suspend fun changeUserData(user: User): Resource<Boolean> =
         usersRepo.changeUserData(user)

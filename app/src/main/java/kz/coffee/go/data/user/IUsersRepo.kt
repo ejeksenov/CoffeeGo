@@ -9,6 +9,7 @@ interface IUsersRepo {
     suspend fun getUserById(): Resource<User>
     suspend fun sendResetPassword(email: String): Resource<Boolean>
     suspend fun changePassword(password: String, newPassword: String): Resource<Boolean>
-    suspend fun changeEmail(password: String, newEmail: String): Resource<Boolean>
+    suspend fun reauthenticateUser(password: String): Resource<Boolean>
+    suspend fun changeEmail(newEmail: String): Resource<Boolean>
     suspend fun changeUserData(user: User): Resource<Boolean>
 }
