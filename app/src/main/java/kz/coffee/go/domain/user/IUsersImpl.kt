@@ -1,10 +1,11 @@
-package kz.coffee.go.domain
+package kz.coffee.go.domain.user
 
 import android.net.Uri
 import kz.coffee.go.data.user.IUsersRepo
 import kz.coffee.go.utils.Resource
 
-class IUsersImpl(private val usersRepo: IUsersRepo) : IUsers {
+class IUsersImpl(private val usersRepo: IUsersRepo) :
+    IUsers {
 
     override suspend fun signInWithEmailAndPassword(
         email: String,

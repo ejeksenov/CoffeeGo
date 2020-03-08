@@ -26,7 +26,7 @@ import com.fxn.pix.Pix
 import com.fxn.utility.PermUtil
 import kz.coffee.go.R
 import kz.coffee.go.databinding.EditProfileFragmentBinding
-import kz.coffee.go.domain.User
+import kz.coffee.go.domain.user.User
 import kz.coffee.go.presentation.base.BaseFragment
 import kz.coffee.go.utils.Resource
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -2,8 +2,7 @@ package kz.coffee.go.presentation.profile
 
 import androidx.lifecycle.liveData
 import com.google.firebase.auth.FirebaseAuth
-import kz.coffee.go.domain.IUsers
-import kz.coffee.go.domain.User
+import kz.coffee.go.domain.user.IUsers
 import kz.coffee.go.presentation.base.BaseViewModel
 import kz.coffee.go.utils.Resource
 import java.lang.Exception

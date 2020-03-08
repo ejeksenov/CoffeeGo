@@ -1,4 +1,4 @@
-package kz.coffee.go.domain
+package kz.coffee.go.domain.user
 
 import com.google.firebase.firestore.IgnoreExtraProperties
 

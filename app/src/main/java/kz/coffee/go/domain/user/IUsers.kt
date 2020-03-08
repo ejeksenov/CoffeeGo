@@ -1,4 +1,4 @@
-package kz.coffee.go.domain
+package kz.coffee.go.domain.user
 
 import android.net.Uri
 import kz.coffee.go.utils.Resource

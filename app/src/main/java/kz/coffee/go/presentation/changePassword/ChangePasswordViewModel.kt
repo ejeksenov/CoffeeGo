@@ -1,8 +1,7 @@
 package kz.coffee.go.presentation.changePassword
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import kz.coffee.go.domain.IUsers
+import kz.coffee.go.domain.user.IUsers
 import kz.coffee.go.presentation.base.BaseViewModel
 import kz.coffee.go.utils.Resource
 import java.lang.Exception
