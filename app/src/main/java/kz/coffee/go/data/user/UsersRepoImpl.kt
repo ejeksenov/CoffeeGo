@@ -1,21 +1,27 @@
 package kz.coffee.go.data.user
 
+import android.net.Uri
+import android.util.Log
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import kotlinx.coroutines.tasks.await
-import kz.coffee.go.data.user.IUsersRepo
 import kz.coffee.go.domain.User
 import kz.coffee.go.domain.userCollectionName
 import kz.coffee.go.utils.Resource
+import java.util.*
 
 class UsersRepoImpl : IUsersRepo {
 
     private val mAuth = FirebaseAuth.getInstance()
     private val mFirestore = FirebaseFirestore.getInstance()
     private var resource: Resource<Boolean>? = null
+    private var resourceData: Resource<String>? = null
+    private val storageRef = FirebaseStorage.getInstance().reference
 
     override suspend fun signInWithEmailAndPassword(
         email: String,
@@ -37,12 +43,13 @@ class UsersRepoImpl : IUsersRepo {
             if (it.isSuccessful) {
                 val mUser = mAuth.currentUser
                 if (mUser != null)
-                    mFirestore.collection(userCollectionName).document(mUser.uid).set(user).addOnCompleteListener { it1 ->
-                        resource = if (it1.isSuccessful)
-                            Resource.Success(true)
-                        else
-                            Resource.Failure(it1.exception!!)
-                    }
+                    mFirestore.collection(userCollectionName).document(mUser.uid).set(user)
+                        .addOnCompleteListener { it1 ->
+                            resource = if (it1.isSuccessful)
+                                Resource.Success(true)
+                            else
+                                Resource.Failure(it1.exception!!)
+                        }
             } else
                 resource = Resource.Failure(it.exception!!)
 
@@ -117,5 +124,31 @@ class UsersRepoImpl : IUsersRepo {
             }.await()
         return resource!!
     }
+
+    override suspend fun saveAvatarToStorage(uri: Uri): Resource<String> {
+        val mUser = mAuth.currentUser
+        val mUserId = mUser?.uid
+        val profileImageRef: StorageReference = storageRef.child("avatar/$mUserId/1.jpg")
+        val uploadTask = profileImageRef.putFile(uri)
+        uploadTask.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    resourceData = Resource.Failure(it)
+                    throw it
+                }
+            }
+            profileImageRef.downloadUrl
+        }.addOnCompleteListener { task ->
+            resourceData = if (task.isSuccessful) {
+                val downloadUri = task.result.toString()
+                Resource.Success(downloadUri)
+            } else {
+                Resource.Failure(task.exception!!)
+            }
+        }.await()
+
+        return resourceData!!
+    }
+
 
 }

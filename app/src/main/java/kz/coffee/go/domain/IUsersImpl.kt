@@ -1,5 +1,6 @@
 package kz.coffee.go.domain
 
+import android.net.Uri
 import kz.coffee.go.data.user.IUsersRepo
 import kz.coffee.go.utils.Resource
 
@@ -34,5 +35,9 @@ class IUsersImpl(private val usersRepo: IUsersRepo) : IUsers {
 
     override suspend fun changeUserData(user: User): Resource<Boolean> =
         usersRepo.changeUserData(user)
+
+    override suspend fun saveAvatarToStorage(uri: Uri): Resource<String> {
+        return usersRepo.saveAvatarToStorage(uri)
+    }
 
 }
