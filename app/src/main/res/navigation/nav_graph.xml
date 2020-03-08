@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_profileFragment_to_changePasswordFragment"
             app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanQrCodeFragment"
@@ -75,4 +78,8 @@
         android:id="@+id/changePasswordFragment"
         android:name="kz.coffee.go.presentation.changePassword.ChangePasswordFragment"
         android:label="ChangePasswordFragment" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="kz.coffee.go.presentation.editProfile.EditProfileFragment"
+        android:label="EditProfileFragment" />
 </navigation>

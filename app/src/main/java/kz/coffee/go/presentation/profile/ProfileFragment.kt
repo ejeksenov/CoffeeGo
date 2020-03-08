@@ -75,7 +75,7 @@ class ProfileFragment : BaseFragment() {
         }
 
         binding.tvProfileEdit.setOnClickListener {
-
+            this.findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
 
         binding.btnProfileSignOut.setOnClickListener {
@@ -128,14 +128,20 @@ class ProfileFragment : BaseFragment() {
 
     private fun onBindDataToView(user: User) {
         val imageUrl = user.imageUrl
-        if (!imageUrl.isNullOrBlank())
+        /*if (!imageUrl.isNullOrBlank())
             Glide.with(binding.root.context).load(imageUrl).centerInside().placeholder(R.drawable.ic_account_circle_gray).apply(
                 RequestOptions.circleCropTransform()
             ).into(binding.ivProfileAvatar)
         else
             Glide.with(binding.root.context).load(R.drawable.ic_account_circle_gray).apply(
                 RequestOptions.circleCropTransform()
+            ).into(binding.ivProfileAvatar)*/
+        Glide.with(binding.root.context).load(imageUrl).centerInside()
+            .placeholder(R.drawable.ic_account_circle_gray).error(R.drawable.ic_broken_image_gray)
+            .apply(
+                RequestOptions.circleCropTransform()
             ).into(binding.ivProfileAvatar)
+
 
         binding.tvProfileName.text = user.fullName
         binding.tvProfileBalance.text = user.cashback.toString()

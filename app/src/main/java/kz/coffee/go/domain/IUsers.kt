@@ -1,5 +1,6 @@
 package kz.coffee.go.domain
 
+import android.net.Uri
 import kz.coffee.go.utils.Resource
 
 interface IUsers {
@@ -11,4 +12,5 @@ interface IUsers {
     suspend fun reauthenticateUser(password: String): Resource<Boolean>
     suspend fun changeEmail(newEmail: String): Resource<Boolean>
     suspend fun changeUserData(user: User): Resource<Boolean>
+    suspend fun saveAvatarToStorage(uri: Uri): Resource<String>
 }

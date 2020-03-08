@@ -30,6 +30,9 @@
     <string name="new_password">Новый пароль</string>
     <string name="repeate_new_password">Повторите пароль</string>
     <string name="passwords_not_match">Пароли не совпадают</string>
+    <string name="change_photo">Сменить фото</string>
+    <string name="city">Город</string>
+    <string name="name">Имя</string>
 
     <string-array name="cities_kz">
         <item>Нур-Султан</item>
