@@ -1,19 +1,15 @@
 package kz.coffee.go.data.user
 
 import android.net.Uri
-import android.util.Log
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
 import kotlinx.coroutines.tasks.await
-import kz.coffee.go.domain.User
-import kz.coffee.go.domain.userCollectionName
+import kz.coffee.go.domain.user.User
+import kz.coffee.go.domain.user.userCollectionName
 import kz.coffee.go.utils.Resource
-import java.util.*
 
 class UsersRepoImpl : IUsersRepo {
 

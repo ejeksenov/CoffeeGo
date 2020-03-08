@@ -1,34 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".presentation.home.HomeFragment">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:id="@+id/homeActionBarLayout"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize">
-            <TextView
+        android:layout_height="match_parent"
+        tools:context=".presentation.home.HomeFragment">
+
+        <RelativeLayout
+            android:id="@+id/homeActionBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/bright_gray">
+
+            <Spinner
+                android:id="@+id/spHomeCitiesList"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                tools:text="Almaty"
+                android:layout_centerInParent="true"
                 android:gravity="center"
-                android:drawableEnd="@drawable/ic_arrow_drop_down_black"
-                android:layout_centerInParent="true"/>
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHomeCafeteriaList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/homeActionBarLayout"
+            android:overScrollMode="never"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
     </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHomeCafeteriaList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        />
-
-</LinearLayout>
 </layout>

@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kz.coffee.go.R
 import kz.coffee.go.databinding.ProfileFragmentBinding
-import kz.coffee.go.domain.User
+import kz.coffee.go.domain.user.User
 import kz.coffee.go.presentation.base.BaseFragment
 import kz.coffee.go.utils.Resource
 import org.koin.androidx.viewmodel.ext.android.viewModel

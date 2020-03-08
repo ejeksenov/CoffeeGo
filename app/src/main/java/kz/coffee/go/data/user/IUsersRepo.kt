@@ -1,7 +1,7 @@
 package kz.coffee.go.data.user
 
 import android.net.Uri
-import kz.coffee.go.domain.User
+import kz.coffee.go.domain.user.User
 import kz.coffee.go.utils.Resource
 
 interface IUsersRepo {

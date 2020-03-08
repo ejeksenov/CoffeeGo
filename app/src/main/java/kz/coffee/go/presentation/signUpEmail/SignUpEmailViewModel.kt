@@ -1,11 +1,8 @@
 package kz.coffee.go.presentation.signUpEmail
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import kz.coffee.go.domain.IUsers
-import kz.coffee.go.domain.User
+import kz.coffee.go.domain.user.IUsers
+import kz.coffee.go.domain.user.User
 import kz.coffee.go.presentation.base.BaseViewModel
 import kz.coffee.go.utils.Resource
 import java.lang.Exception
