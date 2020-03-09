@@ -21,5 +21,11 @@ class CafeteriasRepoImpl: ICafeteriasRepo {
         return Resource.Success(cafeteriaList)
     }
 
+    override suspend fun getCafeteriaById(cafeteriaId: String): Resource<Cafeteria> {
+        val cafeteriaData = mFirestore.collection(cafeteriasCollectionName).document(cafeteriaId).get().await()
+        val cafeteria = cafeteriaData.toObject(Cafeteria::class.java)
+        return Resource.Success(cafeteria!!)
+    }
+
 
 }

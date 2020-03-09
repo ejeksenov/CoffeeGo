@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 
 import kz.coffee.go.R
 import kz.coffee.go.databinding.HomeFragmentBinding
 import kz.coffee.go.presentation.base.BaseFragment
+import kz.coffee.go.utils.CAFETERIA_ID
 import kz.coffee.go.utils.ManagingSharedPrefClass
 import kz.coffee.go.utils.Resource
 import kz.coffee.go.utils.SHARED_PREFS_CITY_NAME
@@ -44,7 +47,8 @@ class HomeFragment : BaseFragment() {
         binding.rvHomeCafeteriaList.adapter = cafeteriasListAdapter
 
         cafeteriasListAdapter.onItemClick = {
-
+            val arg = bundleOf(CAFETERIA_ID to it)
+            this.findNavController().navigate(R.id.action_homeFragment_to_cafeteriaFragment, arg)
         }
     }
 

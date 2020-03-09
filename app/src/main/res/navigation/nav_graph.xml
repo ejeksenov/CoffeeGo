@@ -10,9 +10,18 @@
         android:name="kz.coffee.go.presentation.home.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" >
+
+        <argument
+            android:name="cafeteriaId"
+            app:argType="string"/>
+
         <action
             android:id="@+id/action_homeFragment_to_scanQrCodeFragment"
             app:destination="@id/scanQrCodeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cafeteriaFragment"
+            app:destination="@id/cafeteriaFragment"
+            />
     </fragment>
 
     <fragment
@@ -73,13 +82,34 @@
     <fragment
         android:id="@+id/changeEmailFragment"
         android:name="kz.coffee.go.presentation.changeEmail.ChangeEmailFragment"
-        android:label="ChangeEmailFragment" />
+        android:label="ChangeEmailFragment" >
+        <action
+            android:id="@+id/action_changeEmailFragment_to_scanQrCodeFragment"
+            app:destination="@id/scanQrCodeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
         android:name="kz.coffee.go.presentation.changePassword.ChangePasswordFragment"
-        android:label="ChangePasswordFragment" />
+        android:label="ChangePasswordFragment" >
+        <action
+            android:id="@+id/action_changePasswordFragment_to_scanQrCodeFragment"
+            app:destination="@id/scanQrCodeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="kz.coffee.go.presentation.editProfile.EditProfileFragment"
-        android:label="EditProfileFragment" />
+        android:label="EditProfileFragment" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_scanQrCodeFragment"
+            app:destination="@id/scanQrCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cafeteriaFragment"
+        android:name="kz.coffee.go.presentation.cafeteria.CafeteriaFragment"
+        android:label="cafeteria_fragment"
+        tools:layout="@layout/cafeteria_fragment" >
+        <action
+            android:id="@+id/action_cafeteriaFragment_to_scanQrCodeFragment"
+            app:destination="@id/scanQrCodeFragment" />
+    </fragment>
 </navigation>
