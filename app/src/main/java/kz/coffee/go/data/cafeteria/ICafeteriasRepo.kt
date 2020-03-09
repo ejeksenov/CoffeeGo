@@ -5,4 +5,5 @@ import kz.coffee.go.utils.Resource
 
 interface ICafeteriasRepo {
     suspend fun getCafeteriasByCity(city: String): Resource<List<Cafeteria>>
+    suspend fun getCafeteriaById(cafeteriaId: String): Resource<Cafeteria>
 }

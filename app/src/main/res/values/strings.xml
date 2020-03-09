@@ -33,6 +33,11 @@
     <string name="change_photo">Сменить фото</string>
     <string name="city">Город</string>
     <string name="name">Имя</string>
+    <string name="details">Подробнее</string>
+    <string name="address">Адрес</string>
+    <string name="working_schedule">Время работы</string>
+    <string name="description">Описание</string>
+    <string name="contacts">Контакты</string>
 
     <string-array name="cities_kz">
         <item>Нур-Султан</item>

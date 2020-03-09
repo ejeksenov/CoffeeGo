@@ -7,4 +7,8 @@ class ICafeteriasImpl(private val cafeteriasRepo: ICafeteriasRepo): ICafeterias 
     override suspend fun getCafeteriasByCity(city: String): Resource<List<Cafeteria>> {
         return cafeteriasRepo.getCafeteriasByCity(city)
     }
+
+    override suspend fun getCafeteriaById(cafeteriaId: String): Resource<Cafeteria> {
+        return cafeteriasRepo.getCafeteriaById(cafeteriaId)
+    }
 }

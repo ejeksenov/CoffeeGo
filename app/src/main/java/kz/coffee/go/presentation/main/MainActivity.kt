@@ -46,10 +46,13 @@ class MainActivity : BaseActivity() {
         )
 
         binding.fab.setOnClickListener {
-            if (navController.currentDestination?.id == R.id.homeFragment) {
-                navController.navigate(R.id.action_homeFragment_to_scanQrCodeFragment)
-            } else if (navController.currentDestination?.id == R.id.profileFragment) {
-                navController.navigate(R.id.action_profileFragment_to_scanQrCodeFragment)
+            when(navController.currentDestination?.id) {
+                R.id.homeFragment -> navController.navigate(R.id.action_homeFragment_to_scanQrCodeFragment)
+                R.id.profileFragment -> navController.navigate(R.id.action_profileFragment_to_scanQrCodeFragment)
+                R.id.cafeteriaFragment -> navController.navigate(R.id.action_cafeteriaFragment_to_scanQrCodeFragment)
+                R.id.changeEmailFragment -> navController.navigate(R.id.action_changeEmailFragment_to_scanQrCodeFragment)
+                R.id.changePasswordFragment -> navController.navigate(R.id.action_changePasswordFragment_to_scanQrCodeFragment)
+                R.id.editProfileFragment -> navController.navigate(R.id.action_editProfileFragment_to_scanQrCodeFragment)
             }
         }
     }
