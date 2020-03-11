@@ -59,6 +59,10 @@ class ScanQrCodeFragment : BaseFragment(), ResultHandler {
 
     override fun onResume() {
         super.onResume()
+        onStartCamera()
+    }
+
+    private fun onStartCamera() {
         zXingScannerView.setResultHandler(this)
         zXingScannerView.startCamera()
     }
@@ -81,8 +85,6 @@ class ScanQrCodeFragment : BaseFragment(), ResultHandler {
                 .navigate(R.id.action_scanQrCodeFragment_to_addCashbackFragment, arg)
         } else
             onAlertSimpleDialog(resources.getString(R.string.error_qr_code), binding.root.context)
-
-
     }
 
     private fun onAlertSimpleDialog(
@@ -93,9 +95,9 @@ class ScanQrCodeFragment : BaseFragment(), ResultHandler {
         alertDialog.setMessage(message)
         alertDialog.setButton(
             AlertDialog.BUTTON_NEUTRAL, "OK"
-        ) { dialog: DialogInterface, which: Int ->
+        ) { dialog: DialogInterface, _: Int ->
             dialog.dismiss()
-            onResume()
+            onStartCamera()
         }
         alertDialog.show()
     }
