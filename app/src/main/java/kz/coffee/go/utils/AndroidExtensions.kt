@@ -1,10 +1,15 @@
 package kz.coffee.go.utils
 
+import android.Manifest
+import android.app.Activity
 import android.content.Context
+import android.content.pm.PackageManager
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.*
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
@@ -47,4 +52,20 @@ inline fun ViewModel.launch(
     coroutineContext: CoroutineContext = CoroutineContextProvider().main,
     crossinline block: suspend CoroutineScope.() -> Unit): Job {
   return viewModelScope.launch(coroutineContext) { block() }
+}
+
+
+fun checkPermission(context: Context): Boolean {
+    return ContextCompat.checkSelfPermission(
+        context.applicationContext!!,
+        Manifest.permission.CAMERA
+    ) == PackageManager.PERMISSION_GRANTED
+}
+
+fun requestPermission(activity: Activity, requestCameraCode: Int) {
+    ActivityCompat.requestPermissions(
+        activity,
+        arrayOf(Manifest.permission.CAMERA),
+        requestCameraCode
+    )
 }
