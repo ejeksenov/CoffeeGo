@@ -29,6 +29,8 @@ import kz.coffee.go.databinding.EditProfileFragmentBinding
 import kz.coffee.go.domain.user.User
 import kz.coffee.go.presentation.base.BaseFragment
 import kz.coffee.go.utils.Resource
+import kz.coffee.go.utils.checkPermission
+import kz.coffee.go.utils.requestPermission
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
 
@@ -94,10 +96,10 @@ class EditProfileFragment : BaseFragment() {
         }
 
         binding.tvEditProfileChangeAvatar.setOnClickListener {
-            if (checkPermission())
+            if (checkPermission(requireContext()))
                 onOpenImagePicker()
             else
-                requestPermission()
+                requestPermission(requireActivity(), REQUEST_CAMERA)
         }
     }
 
@@ -189,21 +191,6 @@ class EditProfileFragment : BaseFragment() {
             val index = citiesArray.indexOf(city)
             binding.spEditProfuleCities.setSelection(index)
         }
-    }
-
-    private fun checkPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            context?.applicationContext!!,
-            permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            requireActivity(),
-            arrayOf(permission.CAMERA),
-            REQUEST_CAMERA
-        )
     }
 
     override fun onRequestPermissionsResult(

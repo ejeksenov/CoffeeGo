@@ -38,6 +38,9 @@
     <string name="working_schedule">Время работы</string>
     <string name="description">Описание</string>
     <string name="contacts">Контакты</string>
+    <string name="navigate_camera_to_qrcode">Наведите камеру на QR-код</string>
+    <string name="pay">Оплатить</string>
+    <string name="error_qr_code">Неправильный QR-код, отсканируйе заново</string>
 
     <string-array name="cities_kz">
         <item>Нур-Султан</item>

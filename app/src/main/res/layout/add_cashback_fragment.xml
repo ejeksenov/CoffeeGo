@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.addCashback.AddCashbackFragment">
+
+    <EditText
+        android:id="@+id/edtAddCashbackPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:paddingTop="48dp"
+        android:textSize="80sp"
+        android:autofillHints="0" />
+
+    <TextView
+        android:id="@+id/tvAddCashBackQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtAddCashbackPrice"
+        android:layout_margin="16dp"
+        android:gravity="end"
+        android:textColor="@android:color/holo_green_light"
+        tools:text="10% кэшбэк 125 тг" />
+
+    <Button
+        android:id="@+id/btnAddCashbackPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_corner_button_background"
+        android:text="@string/pay"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</RelativeLayout>
