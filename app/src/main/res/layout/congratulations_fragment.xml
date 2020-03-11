@@ -1,13 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.congratulations.CongratulationsFragment">
+<layout>
 
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".presentation.congratulations.CongratulationsFragment">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/successCongratulationsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp">
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/ic_check_green"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:text="@string/success"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/successCongratulationsLayout"
+            android:layout_marginTop="24dp"/>
+
+        <LinearLayout
+            android:id="@+id/cafeteriaCongratulationsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/successCongratulationsLayout"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp">
+            <ImageView
+                android:id="@+id/ivCongratulationsCafeteriaLogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                tools:src="@drawable/ic_image_gray_34dp"/>
+
+            <TextView
+                android:id="@+id/tvCongratulationsCafeteriaName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                tools:text="BurittoGo"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCongratulationsYouPaidTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/you_paid"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/cafeteriaCongratulationsLayout"
+            android:layout_marginTop="24dp"
+            />
+        <TextView
+            android:id="@+id/tvCongratulationsYouPaidQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="2500"
+            android:textStyle="bold"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-12dp"
+            android:layout_below="@+id/tvCongratulationsYouPaidTxt"
+            />
+
+        <TextView
+            android:id="@+id/tvCongratulationsCashback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="кэшбэк +375"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvCongratulationsYouPaidQuantity"
+            />
+
+        <Button
+            android:id="@+id/btnCongratulationsBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:text="@string/good"
+            android:textColor="@color/colorPrimary"
+            android:paddingStart="48dp"
+            android:paddingEnd="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvCongratulationsCashback"
+            android:background="@drawable/round_bordered_button_background"
+            />
+
+    </RelativeLayout>
+</layout>
