@@ -1,5 +1,6 @@
 package kz.coffee.go.di
 
+import kz.coffee.go.presentation.addCashback.AddCashbackViewModel
 import kz.coffee.go.presentation.cafeteria.CafeteriaViewModel
 import kz.coffee.go.presentation.changeEmail.ChangeEmailViewModel
 import kz.coffee.go.presentation.changePassword.ChangePasswordViewModel
@@ -22,4 +23,5 @@ val presentationModule = module {
     viewModel { EditProfileViewModel(get())}
     viewModel { HomeViewModel(get())}
     viewModel { CafeteriaViewModel(get())}
+    viewModel { AddCashbackViewModel(get(), get()) }
 }
