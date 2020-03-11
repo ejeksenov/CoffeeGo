@@ -14,6 +14,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity() {
 
+    companion object {
+        var startFragment: Int = 0
+    }
+
     private val mainViewModel: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
 
@@ -47,7 +51,8 @@ class MainActivity : BaseActivity() {
         binding.fab.setOnClickListener {
             if (kz.coffee.go.utils.checkPermission(this)) {
                 hideBottomNavigation()
-                when (navController.currentDestination?.id) {
+                startFragment = navController.currentDestination?.id!!
+                when (startFragment) {
                     R.id.homeFragment -> navController.navigate(R.id.action_homeFragment_to_scanQrCodeFragment)
                     R.id.profileFragment -> navController.navigate(R.id.action_profileFragment_to_scanQrCodeFragment)
                     R.id.cafeteriaFragment -> navController.navigate(R.id.action_cafeteriaFragment_to_scanQrCodeFragment)
@@ -61,8 +66,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        if (navController.currentDestination?.id != R.id.scanQrCodeFragment)
+        val currentDestination = navController.currentDestination?.id
+        if (currentDestination != R.id.congratulationsFragment)
+            super.onBackPressed()
+        if (currentDestination != R.id.scanQrCodeFragment && currentDestination != R.id.congratulationsFragment)
             showBottomNavigation()
     }
 

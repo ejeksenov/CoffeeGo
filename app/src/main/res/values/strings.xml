@@ -43,6 +43,9 @@
     <string name="error_qr_code">Неправильный QR-код, отсканируйе заново</string>
     <string name="enter_product_price">Напишите стоимость</string>
     <string name="succeed_paid">Успешно оплачено</string>
+    <string name="you_paid">Вы оплатили</string>
+    <string name="good">Хорошо</string>
+    <string name="success">Успешно!</string>
 
     <string-array name="cities_kz">
         <item>Нур-Султан</item>

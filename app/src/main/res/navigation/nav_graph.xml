@@ -138,12 +138,26 @@
         android:id="@+id/congratulationsFragment"
         android:name="kz.coffee.go.presentation.congratulations.CongratulationsFragment"
         android:label="congratulations_fragment"
-        tools:layout="@layout/congratulations_fragment" />
+        tools:layout="@layout/congratulations_fragment" >
+
+    </fragment>
     <fragment
         android:id="@+id/addCashbackFragment"
         android:name="kz.coffee.go.presentation.addCashback.AddCashbackFragment"
         android:label="add_cashback_fragment"
         tools:layout="@layout/add_cashback_fragment" >
+        <argument
+            android:name="productPrice"
+            app:argType="string"
+            />
+        <argument
+            android:name="productCashback"
+            app:argType="string"
+            />
+        <argument
+            android:name="cafeteriaId"
+            app:argType="string"
+            />
         <action
             android:id="@+id/action_addCashbackFragment_to_congratulationsFragment"
             app:destination="@id/congratulationsFragment" />

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -20,8 +21,7 @@ import kz.coffee.go.databinding.AddCashbackFragmentBinding
 import kz.coffee.go.domain.purchaseHistory.PurchaseHistory
 import kz.coffee.go.domain.user.User
 import kz.coffee.go.presentation.base.BaseFragment
-import kz.coffee.go.utils.CAFETERIA_QR_CODE
-import kz.coffee.go.utils.Resource
+import kz.coffee.go.utils.*
 import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -130,8 +130,8 @@ class AddCashbackFragment : BaseFragment() {
                 }
                 is Resource.Success -> {
                     hideLoading(binding.progressBar)
-                    showMessage(resources.getString(R.string.succeed_paid), binding.root.context)
-                    this.findNavController().navigate(R.id.action_addCashbackFragment_to_congratulationsFragment)
+                    val arg = bundleOf(PRODUCT_PRICE to priceStr, PRODUCT_CASHBACK to cashback.toString(), CAFETERIA_ID to cafeteriaId)
+                    this.findNavController().navigate(R.id.action_addCashbackFragment_to_congratulationsFragment, arg)
                 }
                 is Resource.Failure -> {
                     hideLoading(binding.progressBar)
