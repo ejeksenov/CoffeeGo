@@ -9,6 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDirections
+import androidx.navigation.NavGraph
+import androidx.navigation.NavGraphNavigator
 import androidx.navigation.fragment.findNavController
 import com.google.zxing.Result
 import kz.coffee.go.R

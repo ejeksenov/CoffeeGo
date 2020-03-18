@@ -27,6 +27,7 @@ class MainActivity : BaseActivity() {
     private val navController by lazy { navHostFragment.navController }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 

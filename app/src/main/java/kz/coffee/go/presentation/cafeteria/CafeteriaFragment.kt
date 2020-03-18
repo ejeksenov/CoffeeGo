@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kz.coffee.go.R
 import kz.coffee.go.databinding.CafeteriaFragmentBinding
 import kz.coffee.go.domain.cafeteria.Cafeteria
@@ -85,7 +86,9 @@ class CafeteriaFragment : BaseFragment() {
 
         val logoUrl = cafeteria.logoUrl
         Glide.with(binding.root).load(logoUrl).placeholder(R.drawable.ic_image_gray_34dp)
-            .error(R.drawable.ic_broken_image_gray).centerCrop().into(binding.ivCafeteriaLogo)
+            .error(R.drawable.ic_broken_image_gray).apply(
+                RequestOptions.circleCropTransform()
+            ).centerCrop().into(binding.ivCafeteriaLogo)
 
         val cafeteriaName = cafeteria.name
         if (!cafeteriaName.isNullOrBlank())
