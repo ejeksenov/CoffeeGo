@@ -9,36 +9,33 @@
         android:id="@+id/homeFragment"
         android:name="kz.coffee.go.presentation.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" >
+        tools:layout="@layout/home_fragment">
 
         <argument
             android:name="cafeteriaId"
-            app:argType="string"/>
+            app:argType="string" />
 
         <action
             android:id="@+id/action_homeFragment_to_scanQrCodeFragment"
-            app:destination="@id/scanQrCodeFragment"
-            />
+            app:destination="@id/scanQrCodeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_cafeteriaFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_close_exit"
             app:destination="@id/cafeteriaFragment"
-            />
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="kz.coffee.go.presentation.login.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment"
-        >
+        tools:layout="@layout/login_fragment">
 
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
             app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true"
-            app:destination="@id/homeFragment" />
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_signUpEmailFragment"
             app:destination="@id/signUpEmailFragment" />
@@ -51,48 +48,48 @@
         tools:layout="@layout/sign_up_email_fragment">
         <action
             android:id="@+id/action_signUpEmailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
             app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true"
-            app:destination="@id/homeFragment" />
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="kz.coffee.go.presentation.profile.ProfileFragment"
         android:label="profile_fragment"
-        tools:layout="@layout/profile_fragment" >
+        tools:layout="@layout/profile_fragment">
         <action
             android:id="@+id/action_profileFragment_to_scanQrCodeFragment"
             app:destination="@id/scanQrCodeFragment" />
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true"
-            app:destination="@id/loginFragment" />
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_profileFragment_to_changeEmailFragment"
+            app:destination="@id/changeEmailFragment"
             app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:destination="@id/changeEmailFragment" />
+            app:exitAnim="@anim/fragment_fade_exit" />
         <action
             android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
             app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:destination="@id/changePasswordFragment" />
+            app:exitAnim="@anim/fragment_fade_exit" />
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
             app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:destination="@id/editProfileFragment" />
+            app:exitAnim="@anim/fragment_fade_exit" />
     </fragment>
     <fragment
         android:id="@+id/scanQrCodeFragment"
         android:name="kz.coffee.go.presentation.qrScan.ScanQrCodeFragment"
         android:label="scan_qr_code_fragment"
-        tools:layout="@layout/scan_qr_code_fragment" >
+        tools:layout="@layout/scan_qr_code_fragment">
 
         <argument
             android:name="cafeteriaQrCode"
-            app:argType="string"/>
+            app:argType="string" />
 
         <action
             android:id="@+id/action_scanQrCodeFragment_to_addCashbackFragment"
@@ -129,7 +126,7 @@
         android:id="@+id/cafeteriaFragment"
         android:name="kz.coffee.go.presentation.cafeteria.CafeteriaFragment"
         android:label="cafeteria_fragment"
-        tools:layout="@layout/cafeteria_fragment" >
+        tools:layout="@layout/cafeteria_fragment">
         <action
             android:id="@+id/action_cafeteriaFragment_to_scanQrCodeFragment"
             app:destination="@id/scanQrCodeFragment" />
@@ -138,26 +135,24 @@
         android:id="@+id/congratulationsFragment"
         android:name="kz.coffee.go.presentation.congratulations.CongratulationsFragment"
         android:label="congratulations_fragment"
-        tools:layout="@layout/congratulations_fragment" >
+        tools:layout="@layout/congratulations_fragment">
 
     </fragment>
     <fragment
         android:id="@+id/addCashbackFragment"
         android:name="kz.coffee.go.presentation.addCashback.AddCashbackFragment"
         android:label="add_cashback_fragment"
-        tools:layout="@layout/add_cashback_fragment" >
+        tools:layout="@layout/add_cashback_fragment">
+
         <argument
             android:name="productPrice"
-            app:argType="string"
-            />
+            app:argType="string" />
         <argument
             android:name="productCashback"
-            app:argType="string"
-            />
+            app:argType="string" />
         <argument
             android:name="cafeteriaId"
-            app:argType="string"
-            />
+            app:argType="string" />
         <action
             android:id="@+id/action_addCashbackFragment_to_congratulationsFragment"
             app:destination="@id/congratulationsFragment" />

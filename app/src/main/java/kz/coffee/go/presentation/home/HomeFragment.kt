@@ -7,10 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.NavDirections
+import androidx.navigation.NavGraph
+import androidx.navigation.NavGraphNavigator
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 
 import kz.coffee.go.R
 import kz.coffee.go.databinding.HomeFragmentBinding
@@ -44,8 +49,10 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onCitiesSpinnerSetAdapter()
+        val dividerItemDecoration = DividerItemDecoration(binding.root.context, DividerItemDecoration.VERTICAL)
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(binding.root.context, R.drawable.custom_divider)!!)
+        binding.rvHomeCafeteriaList.addItemDecoration(dividerItemDecoration)
         binding.rvHomeCafeteriaList.adapter = cafeteriasListAdapter
-
         cafeteriasListAdapter.onItemClick = {
             val arg = bundleOf(CAFETERIA_ID to it)
             this.findNavController().navigate(R.id.action_homeFragment_to_cafeteriaFragment, arg)
