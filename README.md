@@ -21,11 +21,7 @@ CoffeeGo is used to pay by scanning QR Code and get for this cashback.
 * [Koin](https://github.com/InsertKoinIO/koin) - a pragmatic lightweight dependency injection framework for Kotlin
 
 ## Screenshots
-![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/home_page.jpg)![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/cafeteria.jpg)
-![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/scanqrcode_page.jpg)![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/add_cashback_page.jpg)
-![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/congratulations_page.jpg)![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/profile_page.jpg)
-![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/edit_profile_page.jpg)![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/change_email_page.jpg)
-![](https://raw.github.com/ejeksenov/CoffeeGo/master/screenshots/change_password_page.jpg)
+![](https://raw.github.com/ejeksenov/CoffeeGo/master/coffego_screenshots.png)
 
 ## License
 
